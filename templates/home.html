@@ -5,81 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI BOT</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        /* Custom CSS styles */
-        .container {
-            margin-top: 50px;
-            position: relative;
-            height: 100vh;
-        }
-        #response-box {
-            overflow-y: auto;
-            max-height: calc(100% - 100px); /* Adjust the height for input box */
-        }
-        #input-box {
-            position: fixed;
-            bottom: 0;
-            width: 80%;
-            padding: 15px;
-            background-color: black;
-            border: 2px solid grey;
-            border-radius : 10px;
-        }
-        body {
-        background-color: black;
-        color: white;
-        }
-        .header {
-        top:0;
-        background-color: black;
-        border: 2px solid #00ccff;
-        border-radius : 10px;
-        padding: 10px 20px;
-        height : 50px;
-        }
-        .footer{
-        bottom:0;
-        position : fixed;
-        background-color: black;
-        border: 2px solid #00ccff;
-        border-radius : 10px;
-        padding: 10px 20px;
-        height : 50px;
-        width:100%
-        }
-        .submit {
-        background-color: black;
-        border: 2px solid #00ccff;
-        border-radius : 10px;
-        padding: 10px 20px;
-        height : 50px;
-        color: white;
-        }
-        img {
-        width:30px;
-        height:30px;
-        border-radius : 50%;
-        }
-    </style>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/style-bot.css') }}">
 </head>
 <body>
 <div class="header" align="center">
     <h5>AI BOT</h5>
-</div>
-<br>
+</div><br>
 <div align="center">
-    <span><img src="{{ url_for('static', filename='bot.jpg') }}" alt="Bot">
-    </span> &nbsp;
-    <span>
-                   <img src="{{ url_for('static', filename='user.png') }}" alt="You">
-               </span>
-</div>
-<br><br><br>
-    <div align="center">
-
+    <span><img src="{{ url_for('static', filename='bot.jpg') }}" alt="Bot"></span> &nbsp;
+    <span><img src="{{ url_for('static', filename='user.png') }}" alt="You"></span>
+</div><br><br><br>
+<div align="center">
     <a href="/question-answer"> <button class="submit" type="submit">Question Answer - roberta-base-squad2 MODEL</button></a><br><br>
-    </div>
-<br><br>
+</div><br><br>
 <div class="footer" align="center">
     <h6>Developed By WILLIYAM M</h6>
 </div>

@@ -5,43 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI BOT</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .container {
-            margin-top: 50px;
-            position: relative;
-            height: 100vh;
-        }
-        #response-box {
-            overflow-y: auto;
-            max-height: calc(100% - 100px); /* Adjust the height for input box */
-        }
-        #input-box {
-            position: fixed;
-            bottom: 0;
-            width: 80%;
-            padding: 15px;
-            background-color: black;
-            border: 2px solid #00ccff;
-            border-radius : 10px;
-        }
-        body {
-        background-color: black;
-        color: white;
-        }
-        .header {
-        top:0;
-        background-color: black;
-            border: 2px solid #00ccff;
-            border-radius : 10px;
-        padding: 10px 20px;
-        height : 50px;
-        }
-        img {
-        width:30px;
-        height:30px;
-        border-radius : 50%;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-bot.css') }}">
 </head>
 <body>
 <div class="header" align="center">
@@ -51,15 +15,9 @@
         <div id="response-box">
             {% for message in value %}
             {% if message[0] == "Bot" %}
-               <span>
-                   <img src="{{ url_for('static', filename='bot.jpg') }}" alt="Bot"><b>{{ message[1] }}</b>
-               </span>
-            <br><br>
+               <span><img src="{{ url_for('static', filename='bot.jpg') }}" alt="Bot"><b>{{ message[1] }}</b></span><br><br>
             {% else %}
-            <span>
-                   <img src="{{ url_for('static', filename='user.png') }}" alt="You"><b>{{ message[1] }}</b>
-               </span>
-            <br><br>
+            <span><img src="{{ url_for('static', filename='user.png') }}" alt="You"><b>{{ message[1] }}</b></span><br><br>
             {% endif %}
             {% endfor %}
         </div>
