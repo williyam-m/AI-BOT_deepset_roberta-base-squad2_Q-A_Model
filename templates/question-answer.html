@@ -12,6 +12,27 @@
     <h5>AI BOT</h5>
 </div>
     <div class="container">
+       <div id="file-upload-section" class="my-4">
+        <form id="file-upload" action="/upload-file" method="post" enctype="multipart/form-data" align="center">
+            <div class="form-group">
+                <label for="file">Upload a file:</label>
+                <input type="file" id="file" name="file" accept=".txt" required>
+                <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" />
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </div>
+        </form>
+        {% if session.context %}
+        <div id="current-file" class="alert alert-info" role="alert">
+            Current file is: {{ session['filename'] }}
+            <br>
+            <small class="text-muted">You can ask questions based on this file.</small>
+        </div>
+        {% else %}
+        <div id="no-file" class="alert alert-warning" role="alert">
+            No file uploaded. Please upload a file to start asking questions.
+        </div>
+        {% endif %}
+       </div>
         <div id="response-box">
             {% for message in value %}
             {% if message[0] == "Bot" %}
@@ -20,7 +41,7 @@
             <span><img src="{{ url_for('static', filename='user.png') }}" alt="You"><b>{{ message[1] }}</b></span><br><br>
             {% endif %}
             {% endfor %}
-        </div>
+        </div><br><br><br><br>
         <form id="input-box" action="/ask-question-answer" method="post" enctype="multipart/form-data">
             <div class="form-row align-items-center" align="center">
                 <div class="col">
